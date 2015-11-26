@@ -9,16 +9,13 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the breathtaking ' + chalk.red('generator-tssoft-aspnet-frontend') + ' generator!'
-    ));
-	
+      'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
     var prompts = [{
       type: 'confirm',
       name: 'someOption',
       message: 'Would you like to enable this option?',
-      default: true
+      'default': true
     }];
-
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.someOption;
@@ -31,6 +28,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
+      this.npmInstall();
   }
 });
