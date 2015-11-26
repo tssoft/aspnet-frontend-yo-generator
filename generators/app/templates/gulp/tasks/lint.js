@@ -3,7 +3,7 @@
     config = require('../../eslint.config.json');
 
 gulp.task('lint', function () {
-    return gulp.src(['assets/scripts/app/**/*.js'])
+    return gulp.src(['src/js/**/*.js'])
         .pipe(eslint(config))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
