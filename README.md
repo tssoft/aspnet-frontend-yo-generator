@@ -22,7 +22,7 @@ Yeoman has a heart of gold. He&#39;s a person with feelings and opinions, but he
 
 ## License
 
-MIT © [s.lagutin]()
+Ts Soft © [s.lagutin]()
 
 
 [npm-image]: https://badge.fury.io/js/generator-tssoft-aspnet-frontend.svg

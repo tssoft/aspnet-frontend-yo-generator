@@ -9,17 +9,44 @@ module.exports = yeoman.generators.Base.extend({
     var done = this.async();
     this.log(yosay(
       'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      'default': true
-    }];
-    this.prompt(prompts, function (props) {
-      this.props = props;
+      var prompts = [
+          {
+              type: 'confirm',
+              name: 'includeTwitterBootStrap',
+              message: 'Do you want to install Twitter Bootstrap?',
+              'default': true
+          },
+          {
+              type: 'checkbox',
+              name: 'features',
+              message: 'What more framework would you install?',
+              choices: [{
+                  name: 'Angular',
+                  value: 'includeAngular',
+                  checked: false
+              }, {
+                  name: 'React',
+                  value: 'includeReact',
+                  checked: false
+              }, {
+                  name: 'Backbone',
+                  value: 'includeBackbone',
+                  checked: false
+              }]
+          }
+      ];
+      this.prompt(prompts, function (answers) {
+          var features = answers.features;
+          function hasFeature(feat) {
+              return features && features.indexOf(feat) !== -1;
+          };
+          this.includeAngular = hasFeature('includeAngular');
+          this.includeReact = hasFeature('includeReact');
+          this.includeBackboner = hasFeature('includeBackbone');
+          this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
 
-      done();
-    }.bind(this));
+          done();
+      }.bind(this));
   },
 
   copyMainFiles: function () {
