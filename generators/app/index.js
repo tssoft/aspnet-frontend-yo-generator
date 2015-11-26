@@ -36,7 +36,7 @@ module.exports = yeoman.generators.Base.extend({
                 {
                     name: 'Modernizr',
                     value: 'includeModernizr',
-                    checked: true
+                    checked: false
                 }]
             }
         ];
@@ -56,13 +56,16 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     copyMainFiles: function () {
-        this.mkdir("assets/scripts/app");
+        this.mkdir("src/js");
+        this.mkdir("src/less");
+        this.mkdir("tests");
         this.copy("_gulpfile.js", "gulpfile.js");
         this.copy("_eslint.config.json", "eslint.config.json");
         this.copy("_package.json", "package.json");
         this.copy("_.jscsrc", ".jscsrc");
         this.copy("_config.js", "gulp/config.js");
         this.copy("_karma.conf.js", "karma.conf.js");
+        this.copy(".gitignore", ".gitignore");
         this.copy("gulp/util/handleErrors.js", "gulp/util/handleErrors.js");
         this.copy("gulp/tasks/default.js", "gulp/tasks/default.js");
         this.copy("gulp/tasks/jscs.js", "gulp/tasks/jscs.js");
