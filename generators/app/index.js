@@ -28,10 +28,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
   },
 
   install: function () {
