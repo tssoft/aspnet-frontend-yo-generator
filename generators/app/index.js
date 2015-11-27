@@ -8,9 +8,18 @@ var mkdirp = require('mkdirp');
 module.exports = yeoman.generators.Base.extend({
     prompting: function () {
         var done = this.async();
+        this.pkg = {
+            appName: '',
+            version: "1.0.0"
+        };
         this.log(yosay(
           'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var prompts = [
+            {
+                type: 'input',
+                name: 'appName',
+                message: 'Name of the application: ',
+            },
             {
                 type: 'confirm',
                 name: 'includeTwitterBootStrap',
@@ -46,6 +55,7 @@ module.exports = yeoman.generators.Base.extend({
             function hasFeature(feature) {
                 return features && features.indexOf(feature) !== -1;
             };
+            this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeAngular = hasFeature('includeAngular');
             this.includeReact = hasFeature('includeReact');

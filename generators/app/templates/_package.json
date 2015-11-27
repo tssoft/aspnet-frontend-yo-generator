@@ -1,5 +1,5 @@
 {
-  "name": "appname",
+  "name": "<%= pkg.appname %>",
   "version": "1.0.0",
   "description": "",
   "main": "./assets/scripts/app/main.js",
