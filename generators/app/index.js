@@ -42,15 +42,30 @@ module.exports = yeoman.generators.Base.extend({
         ];
         this.prompt(prompts, function (answers) {
             var features = answers.features;
-            function hasFeature(feat) {
-                return features && features.indexOf(feat) !== -1;
+            function hasFeature(feature) {
+                return features && features.indexOf(feature) !== -1;
             };
+            this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeAngular = hasFeature('includeAngular');
             this.includeReact = hasFeature('includeReact');
-            this.includeBackboner = hasFeature('includeBackbone');
-            this.includeBackboner = hasFeature('includeModernizr');
-            this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
+            this.includeBackbone = hasFeature('includeBackbone');
+            this.includeModernizr = hasFeature('includeModernizr');
 
+            if (this.includeTwitterBootStrap) {
+                this.bowerInstall(['twitter'], { 'save': true })
+            }
+            if (this.includeAngular) {
+                this.bowerInstall(['angular'], { 'save': true })
+            }
+            if (this.includeReact) {
+                this.bowerInstall(['react'], { 'save': true })
+            }
+            if (this.includeBackbone) {
+                this.bowerInstall(['backbone'], { 'save': true })
+            }
+            if (this.includeModernizr) {
+                this.bowerInstall(['modernizr'], { 'save': true })
+            }
             done();
         }.bind(this));
     },
