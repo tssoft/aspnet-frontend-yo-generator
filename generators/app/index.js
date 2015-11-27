@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var mkdirp = require('mkdirp');
 //var config = requre('config');
 
 module.exports = yeoman.generators.Base.extend({
@@ -14,7 +15,7 @@ module.exports = yeoman.generators.Base.extend({
                 type: 'confirm',
                 name: 'includeTwitterBootStrap',
                 message: 'Do you want to install Twitter Bootstrap?',
-                'default': true
+                'default': false
             },
             {
                 type: 'checkbox',
@@ -71,9 +72,9 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     copyMainFiles: function () {
-        this.mkdir("src/js");
-        this.mkdir("src/less");
-        this.mkdir("tests");
+        mkdirp("src/js");
+        mkdirp("src/less");
+        mkdirp("tests");
         this.copy("_gulpfile.js", "gulpfile.js");
         this.copy("_eslint.config.json", "eslint.config.json");
         this.copy("_package.json", "package.json");
@@ -90,6 +91,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
+        this.npmInstall();
         this.npmInstall(['gulp'], { 'saveDev': true });
         this.npmInstall(['less'], { 'saveDev': true });
         this.npmInstall(['karma'], { 'saveDev': true });
