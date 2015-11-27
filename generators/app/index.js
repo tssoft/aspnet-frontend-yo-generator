@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var mkdirp = require('mkdirp');
+var path = require('path');
 //var config = requre('config');
 
 module.exports = yeoman.generators.Base.extend({
@@ -19,6 +20,7 @@ module.exports = yeoman.generators.Base.extend({
                 type: 'input',
                 name: 'appName',
                 message: 'Name of the application: ',
+                'default': process.cwd().split(path.sep).pop()
             },
             {
                 type: 'confirm',
