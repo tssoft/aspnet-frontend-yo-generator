@@ -1,3 +1,3 @@
 ﻿var gulp = require('gulp');
 
-gulp.task('default', ['less', 'lint', 'tdd'])
+gulp.task('default', [<% if (includeLess) { %>'less', <% } if (includeEslint) { %>'lint', <% } %>'tdd'])

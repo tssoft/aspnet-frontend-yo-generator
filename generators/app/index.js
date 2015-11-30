@@ -77,20 +77,21 @@ module.exports = yeoman.generators.Base.extend({
         ];
         this.prompt(prompts, function (answers) {
             var features = answers.features;
-            function hasFeature(feature) {
-                return features && features.indexOf(feature) !== -1;
+            var plugins = answers.plugins;
+            function wasSelected(element, list) {
+                return features && list.indexOf(element) !== -1;
             };
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
-            this.includeAngular = hasFeature('includeAngular');
-            this.includeReact = hasFeature('includeReact');
-            this.includeBackbone = hasFeature('includeBackbone');
-            this.includeModernizr = hasFeature('includeModernizr');
+            this.includeAngular = wasSelected('includeAngular', features);
+            this.includeReact = wasSelected('includeReact', features);
+            this.includeBackbone = wasSelected('includeBackbone', features);
+            this.includeModernizr = wasSelected('includeModernizr', features);
 
-            this.includeLess = hasFeature('includeLess');
-            this.includeKarma = hasFeature('includeKarma');
-            this.includeJscs = hasFeature('includeJscs');
-            this.includeEslint = hasFeature('includeEslint');
+            this.includeLess = wasSelected('includeLess', plugins);
+            this.includeKarma = wasSelected('includeKarma', plugins);
+            this.includeJscs = wasSelected('includeJscs', plugins);
+            this.includeEslint = wasSelected('includeEslint', plugins);
 
             if (this.includeTwitterBootStrap) {
                 this.bowerInstall(['twitter'], { 'save': true })
