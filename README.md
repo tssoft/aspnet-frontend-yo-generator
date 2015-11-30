@@ -16,9 +16,28 @@ Then generate your new project:
 yo generator-tssoft-aspnet-frontend
 ```
 
-## Getting To Know Yeoman
+## Options
 
-Yeoman has a heart of gold. He&#39;s a person with feelings and opinions, but he&#39;s very easy to work with. If you think he&#39;s too opinionated, he can be easily convinced. Feel free to [learn more about him](http://yeoman.io/).
+You can choose target framework from list:
+
+* Angular
+* React
+* Backbone
+* Modernizr
+
+## Features
+
+![Logo](assets/bootstrap.png)
+![Logo](assets/angular.png)
+![Logo](assets/react.png)
+![Logo](assets/backbone.png)
+![Logo](assets/modernizr.png)
+![Logo](assets/bower.png)
+![Logo](assets/gulp.png)
+![Logo](assets/less.png)
+![Logo](assets/karma.png)
+![Logo](assets/jscs.png)
+![Logo](assets/eslint.png)
 
 ## License
 
