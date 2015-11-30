@@ -13,7 +13,7 @@ npm install -g generator-tssoft-aspnet-frontend
 Then generate your new project:
 
 ```bash
-yo generator-tssoft-aspnet-frontend
+yo tssoft-aspnet-frontend
 ```
 
 ## Options
