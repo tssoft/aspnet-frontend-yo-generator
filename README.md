@@ -18,12 +18,19 @@ yo generator-tssoft-aspnet-frontend
 
 ## Options
 
-You can choose target framework from list:
+You can choose target framework:
 
 * Angular
 * React
 * Backbone
 * Modernizr
+
+Gulp plugins:
+
+* Less
+* Karma
+* JSCS
+* ESLint
 
 ## Features
 
