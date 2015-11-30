@@ -1,13 +1,10 @@
 {
   "name": "generator-tssoft-aspnet-frontend",
   "version": "0.0.0",
-  "description": "",
+  "description": "Yeoman generator for ASP.Net frontend development",
+  "keywords": "yeoman-generator, angular, react, backbone, modernizr, gulp, bootstrap, less, karma, eslint, jscs",
   "homepage": "",
-  "author": {
-    "name": "s.lagutin",
-    "email": "s.lagutin@ts-soft.ru",
-    "url": ""
-  },
+  "author": "Ts Soft",
   "files": [
     "generators"
   ],
