@@ -2,7 +2,7 @@
 var react = require('gulp-react');
 
 gulp.task('react', function () {
-    return gulp.src('../../src/js/*.jsx')
+    return gulp.src('src/*.jsx')
         .pipe(react())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('build/scripts'));
 });
