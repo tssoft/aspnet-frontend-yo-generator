@@ -9,7 +9,8 @@
     "gulp-autoprefixer": "^3.1.0", <% if (includeEslint) { %>
     "gulp-eslint": "^1.1.0", <% } if (includeJscs) { %>
     "gulp-jscs": "^3.0.2", <% } if (includeLess) { %>
-    "gulp-less": "^3.0.5", <% } %>
+    "gulp-less": "^3.0.5", <% } if (includeReact) { %>
+    "gulp-react": "^3.1.0", <% } %>
     "gulp-minify-css": "^1.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0", <% if (includeKarma) { %>

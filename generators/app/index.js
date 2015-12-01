@@ -101,6 +101,8 @@ module.exports = yeoman.generators.Base.extend({
             }
             if (this.includeReact) {
                 this.bowerInstall(['react'], { 'save': true })
+                this.npmInstall(['react'], { 'saveDev': true });
+                this.copy("gulp/tasks/react.js", "gulp/tasks/react.js");
             }
             if (this.includeBackbone) {
                 this.bowerInstall(['backbone'], { 'save': true })
