@@ -109,6 +109,10 @@ module.exports = yeoman.generators.Base.extend({
             }
             if (this.includeModernizr) {
                 this.bowerInstall(['modernizr'], { 'save': true })
+                this.npmInstall(['add-src'], { 'saveDev': true });
+                this.npmInstall(['concat'], { 'saveDev': true });
+                this.npmInstall(['modulizr'], { 'saveDev': true });
+                this.copy("gulp/tasks/modulizr.js", "gulp/tasks/modulizr.js");
             }
             done();
         }.bind(this));
