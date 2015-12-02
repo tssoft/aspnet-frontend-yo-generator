@@ -1,9 +1,9 @@
-﻿var buildRoot  = './assets/build';
+﻿var buildRoot  = 'build/styles';
 
 module.exports = {
     buildRoot: buildRoot,
     less: {
-        src: './assets/less/**/*.less',
-        dest: buildRoot + '/css'
+        src: 'src/less/*.less',
+        dest: buildRoot
     }
 };
