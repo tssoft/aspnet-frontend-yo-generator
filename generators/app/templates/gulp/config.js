@@ -3,7 +3,7 @@
 module.exports = {
     buildRoot: buildRoot,
     less: {
-        src: 'src/less/*.less',
+        src: 'src/**/*.less',
         dest: buildRoot
     }
 };

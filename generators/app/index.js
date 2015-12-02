@@ -4,7 +4,6 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var path = require('path');
-//var config = requre('config');
 
 module.exports = yeoman.generators.Base.extend({
     prompting: function () {
@@ -119,7 +118,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     copyMainFiles: function () {
-        mkdirp("src/less");
+        mkdirp("src");
         mkdirp("tests");
         this.copy("_gulpfile.js", "gulpfile.js");
         this.copy("_package.json", "package.json");
