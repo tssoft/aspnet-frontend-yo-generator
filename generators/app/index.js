@@ -6,14 +6,14 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
-    prompting: function () {
+    prompting: function() {
         var done = this.async();
         this.pkg = {
             appName: '',
             appVersion: "1.0.0"
         };
         this.log(yosay(
-          'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
+            'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var prompts = [
             {
                 type: 'input',
@@ -31,55 +31,61 @@ module.exports = yeoman.generators.Base.extend({
                 type: 'list',
                 name: 'features',
                 message: 'What more framework would you install?',
-                choices: [{
-                    name: 'Angular',
-                    value: 'includeAngular',
-                    checked: false
-                }, {
-                    name: 'React',
-                    value: 'includeReact',
-                    checked: false
-                }, {
-                    name: 'Backbone',
-                    value: 'includeBackbone',
-                    checked: false
-                },
-                {
-                    name: 'Modernizr',
-                    value: 'includeModernizr',
-                    checked: false
-                }]
+                choices: [
+                    {
+                        name: 'Angular',
+                        value: 'includeAngular',
+                        checked: false
+                    }, {
+                        name: 'React',
+                        value: 'includeReact',
+                        checked: false
+                    }, {
+                        name: 'Backbone',
+                        value: 'includeBackbone',
+                        checked: false
+                    },
+                    {
+                        name: 'Modernizr',
+                        value: 'includeModernizr',
+                        checked: false
+                    }
+                ]
             },
             {
                 type: 'checkbox',
                 name: 'plugins',
                 message: 'What plugin would you include for Gulp?',
-                choices: [{
-                    name: 'LESS',
-                    value: 'includeLess',
-                    checked: true
-                }, {
-                    name: 'Karma',
-                    value: 'includeKarma',
-                    checked: true
-                }, {
-                    name: 'JSCS',
-                    value: 'includeJscs',
-                    checked: true
-                },
-                {
-                    name: 'ESLint',
-                    value: 'includeEslint',
-                    checked: true
-                }]
+                choices: [
+                    {
+                        name: 'LESS',
+                        value: 'includeLess',
+                        checked: true
+                    }, {
+                        name: 'Karma',
+                        value: 'includeKarma',
+                        checked: true
+                    }, {
+                        name: 'JSCS',
+                        value: 'includeJscs',
+                        checked: true
+                    },
+                    {
+                        name: 'ESLint',
+                        value: 'includeEslint',
+                        checked: true
+                    }
+                ]
             }
         ];
-        this.prompt(prompts, function (answers) {
+        this.prompt(prompts, function(answers) {
             var features = answers.features;
             var plugins = answers.plugins;
+
             function wasSelected(element, list) {
                 return features && list.indexOf(element) !== -1;
             };
+
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeAngular = wasSelected('includeAngular', features);
@@ -117,7 +123,7 @@ module.exports = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    copyMainFiles: function () {
+    copyMainFiles: function() {
         mkdirp("src");
         mkdirp("tests");
         this.copy("_gulpfile.js", "gulpfile.js");
@@ -128,7 +134,7 @@ module.exports = yeoman.generators.Base.extend({
         this.copy("gulp/tasks/default.js", "gulp/tasks/default.js");
     },
 
-    install: function () {
+    install: function() {
         this.npmInstall();
         this.npmInstall(['gulp'], { 'saveDev': true });
         if (this.includeLess) {
