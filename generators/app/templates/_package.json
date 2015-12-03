@@ -1,6 +1,6 @@
 {
-  "name": "<%= pkg.appname %>",
-  "version": "1.0.0",
+  "name": "<%= pkg.appName %>",
+  "version": "<%= pkg.appVersion %>",
   "description": "",
   "main": "./assets/scripts/app/main.js",
   "dependencies": {},

@@ -10,7 +10,7 @@ module.exports = yeoman.generators.Base.extend({
         var done = this.async();
         this.pkg = {
             appName: '',
-            version: "1.0.0"
+            appVersion: "1.0.0"
         };
         this.log(yosay(
           'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
