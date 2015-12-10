@@ -125,7 +125,7 @@ module.exports = yeoman.generators.Base.extend({
 
     copyMainFiles: function() {
         mkdirp("src");
-        mkdirp("tests");
+        mkdirp("test");
         this.copy("_gulpfile.js", "gulpfile.js");
         this.copy("_package.json", "package.json");
         this.copy("gulp/config.js", "gulp/config.js");
