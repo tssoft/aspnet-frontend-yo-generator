@@ -77,11 +77,28 @@ module.exports = yeoman.generators.Base.extend({
                         checked: true
                     }
                 ]
+            },
+            {
+                type: 'checkbox',
+                name: 'concatenatedSources',
+                message: 'What sources would you concatenate?',
+                choices: [
+                    {
+                        name: 'CSS',
+                        value: 'concatenatedCss',
+                        checked: false
+                    }, {
+                        name: 'JS',
+                        value: 'concatenatedJs',
+                        checked: false
+                    }
+                ]
             }
         ];
         this.prompt(prompts, function (answers) {
             var features = answers.features;
             var plugins = answers.plugins;
+            var concatenatedSources = answers.concatenatedSources;
 
             function wasSelected(element, list) {
                 return features && list.indexOf(element) !== -1;
@@ -99,6 +116,9 @@ module.exports = yeoman.generators.Base.extend({
             this.includeJscs = wasSelected('includeJscs', plugins);
             this.includeEslint = wasSelected('includeEslint', plugins);
 
+            this.concatenatedCss = wasSelected('concatenatedCss', concatenatedSources);
+            this.concatenatedJs = wasSelected('concatenatedJs', concatenatedSources);
+
             if (this.includeTwitterBootStrap) {
                 this.bowerInstall(['twitter'], { 'save': true })
             }
@@ -114,8 +134,14 @@ module.exports = yeoman.generators.Base.extend({
                 this.bowerInstall(['backbone'], { 'save': true })
             }
             if (this.includeModernizr) {
-                this.npmInstall(['gulp-modernizr'], { 'save': true })
+                this.npmInstall(['gulp-modernizr'], { 'saveDev': true })
                 this.copy("gulp/tasks/modernizr.js", "gulp/tasks/modernizr.js");
+            }
+            if (this.concatenatedCss) {
+                this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
+            }
+            if (this.concatenatedJs) {
+                this.npmInstall(['gulp-concat'], { 'saveDev': true })
             }
             done();
         }.bind(this));
