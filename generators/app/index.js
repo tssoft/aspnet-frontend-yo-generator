@@ -6,7 +6,7 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
-    prompting: function() {
+    prompting: function () {
         var done = this.async();
         this.pkg = {
             appName: '',
@@ -28,6 +28,12 @@ module.exports = yeoman.generators.Base.extend({
                 'default': false
             },
             {
+                type: 'confirm',
+                name: 'includeModernizr',
+                message: 'Do you want to install Modernizr?',
+                'default': false
+            },
+            {
                 type: 'list',
                 name: 'features',
                 message: 'What more framework would you install?',
@@ -43,11 +49,6 @@ module.exports = yeoman.generators.Base.extend({
                     }, {
                         name: 'Backbone',
                         value: 'includeBackbone',
-                        checked: false
-                    },
-                    {
-                        name: 'Modernizr',
-                        value: 'includeModernizr',
                         checked: false
                     }
                 ]
@@ -78,7 +79,7 @@ module.exports = yeoman.generators.Base.extend({
                 ]
             }
         ];
-        this.prompt(prompts, function(answers) {
+        this.prompt(prompts, function (answers) {
             var features = answers.features;
             var plugins = answers.plugins;
 
@@ -88,11 +89,11 @@ module.exports = yeoman.generators.Base.extend({
 
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
+            this.includeModernizr = answers.includeModernizr;
             this.includeAngular = wasSelected('includeAngular', features);
             this.includeReact = wasSelected('includeReact', features);
             this.includeBackbone = wasSelected('includeBackbone', features);
-            this.includeModernizr = wasSelected('includeModernizr', features);
-
+            
             this.includeLess = wasSelected('includeLess', plugins);
             this.includeKarma = wasSelected('includeKarma', plugins);
             this.includeJscs = wasSelected('includeJscs', plugins);
@@ -113,17 +114,14 @@ module.exports = yeoman.generators.Base.extend({
                 this.bowerInstall(['backbone'], { 'save': true })
             }
             if (this.includeModernizr) {
-                this.bowerInstall(['modernizr'], { 'save': true })
-                this.npmInstall(['add-src'], { 'saveDev': true });
-                this.npmInstall(['concat'], { 'saveDev': true });
-                this.npmInstall(['modulizr'], { 'saveDev': true });
-                this.copy("gulp/tasks/modulizr.js", "gulp/tasks/modulizr.js");
+                this.npmInstall(['gulp-modernizr'], { 'save': true })
+                this.copy("gulp/tasks/modernizr.js", "gulp/tasks/modernizr.js");
             }
             done();
         }.bind(this));
     },
 
-    copyMainFiles: function() {
+    copyMainFiles: function () {
         mkdirp("src");
         mkdirp("test");
         this.copy("_gulpfile.js", "gulpfile.js");
@@ -134,7 +132,7 @@ module.exports = yeoman.generators.Base.extend({
         this.copy("gulp/tasks/default.js", "gulp/tasks/default.js");
     },
 
-    install: function() {
+    install: function () {
         this.npmInstall();
         this.npmInstall(['gulp'], { 'saveDev': true });
         if (this.includeLess) {
