@@ -145,6 +145,8 @@ module.exports = yeoman.generators.Base.extend({
             this.copy("gulp/tasks/karma.js", "gulp/tasks/karma.js");
             this.copy("_karma.conf.js", "karma.conf.js");
             this.npmInstall(['karma'], { 'saveDev': true });
+            this.npmInstall(['jasmine-core'], { 'saveDev': true });
+            this.npmInstall(['phantomjs'], { 'saveDev': true });
         }
         if (this.includeJscs) {
             this.copy("gulp/tasks/jscs.js", "gulp/tasks/jscs.js");
