@@ -81,7 +81,7 @@ module.exports = yeoman.generators.Base.extend({
             {
                 type: 'checkbox',
                 name: 'concatenatedSources',
-                message: 'What sources would you concatenate?',
+                message: 'What sources would you want to concatenate?',
                 choices: [
                     {
                         name: 'CSS',
@@ -139,9 +139,11 @@ module.exports = yeoman.generators.Base.extend({
             }
             if (this.concatenatedCss) {
                 this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
+                this.copy("gulp/tasks/concatCss.js", "gulp/tasks/concatCss.js");
             }
             if (this.concatenatedJs) {
                 this.npmInstall(['gulp-concat'], { 'saveDev': true })
+                this.copy("gulp/tasks/concatJs.js", "gulp/tasks/concatJs.js");
             }
             done();
         }.bind(this));
