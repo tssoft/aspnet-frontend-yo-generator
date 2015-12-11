@@ -5,6 +5,5 @@ gulp.task('default', [
 <% } if (includeLess) { %>'less',
 <% } if (includeEslint) { %>'lint',
 <% } if (includeJscs) { %>'jscs',
-<% } if (includeConcatJs) { %>'concatjs',
 <% } if (includeConcatCss) { %>'concatcss'<% } %>
 ])
