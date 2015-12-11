@@ -85,11 +85,11 @@ module.exports = yeoman.generators.Base.extend({
                 choices: [
                     {
                         name: 'CSS',
-                        value: 'concatenatedCss',
+                        value: 'includeConcatCss',
                         checked: false
                     }, {
                         name: 'JS',
-                        value: 'concatenatedJs',
+                        value: 'includeConcatJs',
                         checked: false
                     }
                 ]
@@ -116,8 +116,8 @@ module.exports = yeoman.generators.Base.extend({
             this.includeJscs = wasSelected('includeJscs', plugins);
             this.includeEslint = wasSelected('includeEslint', plugins);
 
-            this.concatenatedCss = wasSelected('concatenatedCss', concatenatedSources);
-            this.concatenatedJs = wasSelected('concatenatedJs', concatenatedSources);
+            this.includeConcatCss = wasSelected('includeConcatCss', concatenatedSources);
+            this.includeConcatJs = wasSelected('includeConcatJs', concatenatedSources);
 
             if (this.includeTwitterBootStrap) {
                 this.bowerInstall(['twitter'], { 'save': true })
@@ -137,11 +137,11 @@ module.exports = yeoman.generators.Base.extend({
                 this.npmInstall(['gulp-modernizr'], { 'saveDev': true })
                 this.copy("gulp/tasks/modernizr.js", "gulp/tasks/modernizr.js");
             }
-            if (this.concatenatedCss) {
+            if (this.includeConcatCss) {
                 this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
                 this.copy("gulp/tasks/concatCss.js", "gulp/tasks/concatCss.js");
             }
-            if (this.concatenatedJs) {
+            if (this.includeConcatJs) {
                 this.npmInstall(['gulp-concat'], { 'saveDev': true })
                 this.copy("gulp/tasks/concatJs.js", "gulp/tasks/concatJs.js");
             }
