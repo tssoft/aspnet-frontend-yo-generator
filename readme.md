@@ -23,7 +23,6 @@ You can choose target framework:
 * Angular
 * React
 * Backbone
-* Modernizr
 
 Gulp plugins:
 
@@ -31,6 +30,9 @@ Gulp plugins:
 * Karma
 * JSCS
 * ESLint
+* Modernizr
+* ConcatCSS
+* Concat (for .js)
 
 ## Features
 
