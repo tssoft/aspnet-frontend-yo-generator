@@ -5,6 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
 var handleErrors = require('../util/handleErrors');
 var config = require('../config').less;
+var concatCss = require('gulp-concat-css');
 
 gulp.task('less', function() {
     gulp.src(config.src)
@@ -14,5 +15,7 @@ gulp.task('less', function() {
         .pipe(autoprefixer({ cascade: false, browsers: ['last 2 versions'] }))
         .pipe(minifyCSS())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.dest));
+        .pipe(gulp.dest(config.dest))<% if (includeConcatCss) { %>
+        .pipe(concatCss("styles.css"))
+        .pipe(gulp.dest('build/'));<% } %>
 });

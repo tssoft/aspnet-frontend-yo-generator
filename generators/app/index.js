@@ -139,7 +139,6 @@ module.exports = yeoman.generators.Base.extend({
             }
             if (this.includeConcatCss) {
                 this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
-                this.copy("gulp/tasks/concatCss.js", "gulp/tasks/concatCss.js");
             }
             if (this.includeConcatJs) {
                 this.npmInstall(['gulp-concat'], { 'saveDev': true })
