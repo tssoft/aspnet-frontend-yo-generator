@@ -2,8 +2,7 @@
     {
         "type": "input",
         "name": "appName",
-        "message": "Name of the application: ",
-        "default": ""
+        "message": "Name of the application: "
     },
     {
         "type": "confirm",
