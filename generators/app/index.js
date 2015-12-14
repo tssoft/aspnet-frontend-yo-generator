@@ -5,6 +5,7 @@ var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var path = require('path');
 var _ = require('lodash');
+var prompts = require('./prompts.json');
 
 module.exports = yeoman.generators.Base.extend({
     prompting: function () {
@@ -15,10 +16,9 @@ module.exports = yeoman.generators.Base.extend({
         };
         this.log(yosay(
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
-        var prompt = require('./prompts.json');
-        var index = _.findIndex(prompt, { name: 'appName' });
-        prompt[index].default = process.cwd().split(path.sep).pop();
-        this.prompt(prompt, function (answers) {
+        var index = _.findIndex(prompts, { name: 'appName' });
+        prompts[index].default = process.cwd().split(path.sep).pop();
+        this.prompt(prompts, function (answers) {
             var features = answers.features;
             var plugins = answers.plugins;
             var concatenatedSources = answers.concatenatedSources;
