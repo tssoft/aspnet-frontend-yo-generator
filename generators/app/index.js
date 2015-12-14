@@ -11,8 +11,7 @@ module.exports = yeoman.generators.Base.extend({
     prompting: function () {
         var done = this.async();
         this.pkg = {
-            appName: '',
-            appVersion: "1.0.0"
+            appVersion: '1.0.0'
         };
         this.log(yosay(
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
@@ -41,31 +40,6 @@ module.exports = yeoman.generators.Base.extend({
 
             this.includeConcatCss = wasSelected('includeConcatCss', concatenatedSources);
             this.includeConcatJs = wasSelected('includeConcatJs', concatenatedSources);
-
-            if (this.includeTwitterBootStrap) {
-                this.bowerInstall(['twitter'], { 'save': true })
-            }
-            if (this.includeAngular) {
-                this.bowerInstall(['angular'], { 'save': true })
-            }
-            if (this.includeReact) {
-                this.bowerInstall(['react'], { 'save': true })
-                this.npmInstall(['gulp-react'], { 'saveDev': true });
-                this.copy("gulp/tasks/react.js", "gulp/tasks/react.js");
-            }
-            if (this.includeBackbone) {
-                this.bowerInstall(['backbone'], { 'save': true })
-            }
-            if (this.includeModernizr) {
-                this.npmInstall(['gulp-modernizr'], { 'saveDev': true })
-                this.copy("gulp/tasks/modernizr.js", "gulp/tasks/modernizr.js");
-            }
-            if (this.includeConcatCss) {
-                this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
-            }
-            if (this.includeConcatJs) {
-                this.npmInstall(['gulp-concat'], { 'saveDev': true })
-            }
             done();
         }.bind(this));
     },
@@ -84,6 +58,30 @@ module.exports = yeoman.generators.Base.extend({
     install: function () {
         this.npmInstall();
         this.npmInstall(['gulp'], { 'saveDev': true });
+        if (this.includeTwitterBootStrap) {
+            this.bowerInstall(['twitter'], { 'save': true })
+        }
+        if (this.includeAngular) {
+            this.bowerInstall(['angular'], { 'save': true })
+        }
+        if (this.includeReact) {
+            this.bowerInstall(['react'], { 'save': true })
+            this.npmInstall(['gulp-react'], { 'saveDev': true });
+            this.copy("gulp/tasks/react.js", "gulp/tasks/react.js");
+        }
+        if (this.includeBackbone) {
+            this.bowerInstall(['backbone'], { 'save': true })
+        }
+        if (this.includeModernizr) {
+            this.npmInstall(['gulp-modernizr'], { 'saveDev': true })
+            this.copy("gulp/tasks/modernizr.js", "gulp/tasks/modernizr.js");
+        }
+        if (this.includeConcatCss) {
+            this.npmInstall(['gulp-concat-css'], { 'saveDev': true })
+        }
+        if (this.includeConcatJs) {
+            this.npmInstall(['gulp-concat'], { 'saveDev': true })
+        }
         if (this.includeLess) {
             this.copy("gulp/tasks/less.js", "gulp/tasks/less.js");
             this.npmInstall(['less'], { 'saveDev': true });
