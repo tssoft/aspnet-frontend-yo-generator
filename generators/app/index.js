@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var path = require('path');
+var _ = require('lodash');
 
 module.exports = yeoman.generators.Base.extend({
     prompting: function () {
@@ -14,88 +15,10 @@ module.exports = yeoman.generators.Base.extend({
         };
         this.log(yosay(
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
-        var prompts = [
-            {
-                type: 'input',
-                name: 'appName',
-                message: 'Name of the application: ',
-                'default': process.cwd().split(path.sep).pop()
-            },
-            {
-                type: 'confirm',
-                name: 'includeTwitterBootStrap',
-                message: 'Do you want to install Twitter Bootstrap?',
-                'default': false
-            },
-            {
-                type: 'confirm',
-                name: 'includeModernizr',
-                message: 'Do you want to install Modernizr?',
-                'default': false
-            },
-            {
-                type: 'list',
-                name: 'features',
-                message: 'What more framework would you install?',
-                choices: [
-                    {
-                        name: 'Angular',
-                        value: 'includeAngular',
-                        checked: false
-                    }, {
-                        name: 'React',
-                        value: 'includeReact',
-                        checked: false
-                    }, {
-                        name: 'Backbone',
-                        value: 'includeBackbone',
-                        checked: false
-                    }
-                ]
-            },
-            {
-                type: 'checkbox',
-                name: 'plugins',
-                message: 'What plugin would you include for Gulp?',
-                choices: [
-                    {
-                        name: 'LESS',
-                        value: 'includeLess',
-                        checked: true
-                    }, {
-                        name: 'Karma',
-                        value: 'includeKarma',
-                        checked: true
-                    }, {
-                        name: 'JSCS',
-                        value: 'includeJscs',
-                        checked: true
-                    },
-                    {
-                        name: 'ESLint',
-                        value: 'includeEslint',
-                        checked: true
-                    }
-                ]
-            },
-            {
-                type: 'checkbox',
-                name: 'concatenatedSources',
-                message: 'What sources would you want to concatenate?',
-                choices: [
-                    {
-                        name: 'CSS',
-                        value: 'includeConcatCss',
-                        checked: false
-                    }, {
-                        name: 'JS',
-                        value: 'includeConcatJs',
-                        checked: false
-                    }
-                ]
-            }
-        ];
-        this.prompt(prompts, function (answers) {
+        var prompt = require('./prompts.json');
+        var index = _.findIndex(prompt, { name: 'appName' });
+        prompt[index].default = process.cwd().split(path.sep).pop();
+        this.prompt(prompt, function (answers) {
             var features = answers.features;
             var plugins = answers.plugins;
             var concatenatedSources = answers.concatenatedSources;
@@ -110,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
             this.includeAngular = wasSelected('includeAngular', features);
             this.includeReact = wasSelected('includeReact', features);
             this.includeBackbone = wasSelected('includeBackbone', features);
-            
+
             this.includeLess = wasSelected('includeLess', plugins);
             this.includeKarma = wasSelected('includeKarma', plugins);
             this.includeJscs = wasSelected('includeJscs', plugins);
