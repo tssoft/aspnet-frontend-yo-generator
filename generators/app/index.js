@@ -63,6 +63,7 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeAngular) {
             this.bowerInstall(['angular'], { 'save': true })
+            this.bowerInstall(['angular-mocks'], { 'save': true })
         }
         if (this.includeReact) {
             this.bowerInstall(['react'], { 'save': true })
