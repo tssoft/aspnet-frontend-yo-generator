@@ -1,11 +1,12 @@
-﻿var gulp = require('gulp');
-var react = require('gulp-react');
-var concat = require('gulp-concat');
+﻿var gulp = require('gulp'),
+    react = require('gulp-react'),
+    concat = require('gulp-concat'),
+    config = require('../config').react;
 
 gulp.task('react', function () {
-    return gulp.src('src/**/*.jsx')
+    return gulp.src(config.src)
         .pipe(react())
-        .pipe(gulp.dest('build/scripts'))<% if (includeConcatJs) { %>
+        .pipe(gulp.dest(config.dest))<% if (includeConcatJs) { %>
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('build/'));<% } %>
+        .pipe(gulp.dest(config.destConcat));<% } %>
 });

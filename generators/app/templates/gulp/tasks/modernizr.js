@@ -1,8 +1,9 @@
-﻿var gulp = require('gulp');
-var modernizr = require('gulp-modernizr');
+﻿var gulp = require('gulp'),
+    modernizr = require('gulp-modernizr'),
+    config = require('../config').modernizr;
 
 gulp.task('modernizr', function () {
-    return gulp.src('src/**/*.js')
+    return gulp.src(config.src)
         .pipe(modernizr())
-        .pipe(gulp.dest('build/scripts'));
+        .pipe(gulp.dest(config.dest));
 });

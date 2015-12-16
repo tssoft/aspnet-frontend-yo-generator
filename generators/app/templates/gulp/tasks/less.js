@@ -1,11 +1,11 @@
-﻿var gulp = require('gulp');
-var less = require('gulp-less');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var minifyCSS = require('gulp-minify-css');
-var handleErrors = require('../util/handleErrors');
-var config = require('../config').less;
-var concatCss = require('gulp-concat-css');
+﻿var gulp = require('gulp'),
+    less = require('gulp-less'),
+    autoprefixer = require('gulp-autoprefixer'),
+    sourcemaps = require('gulp-sourcemaps'),
+    minifyCSS = require('gulp-minify-css'),
+    handleErrors = require('../util/handleErrors'),
+    config = require('../config').less;
+    concatCss = require('gulp-concat-css');
 
 gulp.task('less', function() {
     gulp.src(config.src)
@@ -16,6 +16,6 @@ gulp.task('less', function() {
         .pipe(minifyCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.dest))<% if (includeConcatCss) { %>
-        .pipe(concatCss("styles.css"))
-        .pipe(gulp.dest('build/'));<% } %>
+        .pipe(concatCss('styles.css'))
+        .pipe(gulp.dest(config.destConcat));<% } %>
 });
