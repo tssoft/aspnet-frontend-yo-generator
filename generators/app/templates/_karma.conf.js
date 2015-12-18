@@ -16,7 +16,7 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [<% if (includeAngular) { %>
             'bower_components/angular/angular.min.js',<% } if (includeReact) { %>
-            'bower_components/react/react.min.js',<% } if (includeBackbone) { %>
+            'node_modules/react/dist/react-with-addons.js',<% } if (includeBackbone) { %>
             'bower_components/backbone/backbone-min.js',
             'bower_components/underscore/underscore-min.js',<% } %>
             'build/scripts/**/*.js',
