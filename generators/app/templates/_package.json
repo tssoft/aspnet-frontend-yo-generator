@@ -2,7 +2,7 @@
   "name": "<%= pkg.appName %>",
   "version": "<%= pkg.appVersion %>",
   "description": "",
-  "main": "./assets/scripts/app/main.js",
+  "main": "",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
