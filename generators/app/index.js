@@ -56,8 +56,9 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall();
+        this.npmInstall(['require-dir'], { 'saveDev': true });
         this.npmInstall(['gulp'], { 'saveDev': true });
+        this.npmInstall(['gulp-notify'], { 'saveDev': true });
         if (this.includeTwitterBootStrap) {
             this.bowerInstall(['twitter'], { 'save': true })
         }
@@ -66,9 +67,12 @@ module.exports = yeoman.generators.Base.extend({
             this.bowerInstall(['angular-mocks'], { 'save': true })
         }
         if (this.includeReact) {
-            this.bowerInstall(['react'], { 'save': true })
+            this.npmInstall(['react'], { 'saveDev': true })
             this.npmInstall(['gulp-react'], { 'saveDev': true });
+            this.npmInstall(['react-dom'], { 'saveDev': true });
+            this.npmInstall(['core-js'], { 'saveDev': true });
             this.npmInstall(['karma-es5-shim'], { 'saveDev': true });
+            this.npmInstall(['jasmine-react'], { 'saveDev': true });
             this.copy("gulp/tasks/react.js", "gulp/tasks/react.js");
         }
         if (this.includeBackbone) {
@@ -86,24 +90,29 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeLess) {
             this.copy("gulp/tasks/less.js", "gulp/tasks/less.js");
-            this.npmInstall(['less'], { 'saveDev': true });
+            this.npmInstall(['gulp-autoprefixer'], { 'saveDev': true });
+            this.npmInstall(['gulp-sourcemaps'], { 'saveDev': true });
+            this.npmInstall(['gulp-minify-css'], { 'saveDev': true });
+            this.npmInstall(['gulp-less'], { 'saveDev': true });
         }
         if (this.includeKarma) {
             this.copy("gulp/tasks/karma.js", "gulp/tasks/karma.js");
             this.copy("_karma.conf.js", "karma.conf.js");
             this.npmInstall(['karma'], { 'saveDev': true });
+            this.npmInstall(['karma-jasmine'], { 'saveDev': true });
             this.npmInstall(['jasmine-core'], { 'saveDev': true });
             this.npmInstall(['phantomjs'], { 'saveDev': true });
+            this.npmInstall(['karma-phantomjs-launcher'], { 'saveDev': true });
         }
         if (this.includeJscs) {
             this.copy("gulp/tasks/jscs.js", "gulp/tasks/jscs.js");
             this.copy("_.jscsrc", ".jscsrc");
-            this.npmInstall(['jscs'], { 'saveDev': true });
+            this.npmInstall(['gulp-jscs'], { 'saveDev': true });
         }
         if (this.includeEslint) {
             this.copy("gulp/tasks/lint.js", "gulp/tasks/lint.js");
             this.copy("_eslint.config.json", "eslint.config.json");
-            this.npmInstall(['eslint'], { 'saveDev': true });
+            this.npmInstall(['gulp-eslint'], { 'saveDev': true });
         }
     }
 });
