@@ -99,5 +99,8 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('_eslint.config.json', 'eslint.config.json');
             this.npmInstall('gulp-eslint', { saveDev: true });
         }
+        if (this.includeEslint && this.includeJscs) {
+            this.copy('gulp/tasks/check.js', 'gulp/tasks/check.js');
+        }
     }
 });
