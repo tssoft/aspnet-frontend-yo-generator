@@ -7,7 +7,7 @@ First, install [Yeoman](http://yeoman.io) and generator-tssoft-aspnet-frontend u
 
 ```bash
 npm install -g yo
-npm install -g generator-tssoft-aspnet-frontend
+npm install -g git+https://github.com/tssoft/aspnet-frontend-yo-generator.git
 ```
 
 Then generate your new project:
@@ -33,6 +33,24 @@ Gulp plugins:
 * Modernizr
 * ConcatCSS
 * Concat (for .js)
+
+## Tasks
+
+Multiple:
+
+* gulp — starts React, Less, ESLint and JSCS
+* gulp check — starts ESLint and JSCS
+* gulp default — the same as gulp
+
+Single:
+
+* gulp jscs
+* gulp lint
+* gulp modernizr
+* gulp tdd — starts Karma
+* gulp test — starts Karma with singleRun flag
+* gulp less — starts Less and minifying CSS results. If gulp-concat-css has been installed, results will be concatenated
+* gulp react — starts React and if gulp-concat has been installed, results will be also concatenated
 
 ## Features
 
