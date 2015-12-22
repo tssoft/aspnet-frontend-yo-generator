@@ -60,6 +60,7 @@ module.exports = yeoman.generators.Base.extend({
         mkdirp('test');
         this.copy('_gulpfile.js', 'gulpfile.js');
         this.copy('_package.json', 'package.json');
+        this.copy('_bower.json', 'bower.json');
         this.copy('gulp/config.js', 'gulp/config.js');
         this.copy('.npmignore', '.gitignore');
         this.copy('gulp/util/handleErrors.js', 'gulp/util/handleErrors.js');
