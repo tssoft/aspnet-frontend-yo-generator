@@ -22,11 +22,11 @@
         "message": "What more framework would you install?",
         "choices": [
             {
-                "name": "Angular",
+                "name": "Angular 1.x",
                 "value": "includeAngular",
                 "checked": false
             }, {
-                "name": "Angular2",
+                "name": "Angular 2.x",
                 "value": "includeAngular2",
                 "checked": false
             }, {

@@ -72,10 +72,10 @@ module.exports = yeoman.generators.Base.extend({
             this.bowerInstall('twitter', { save: true })
         }
         if (this.includeAngular) {
-            this.bowerInstall(['angular', 'angular-mocks'], { save: true })
+            this.npmInstall(['angular@1.x', 'angular-mocks@1.x'], { save: true })
         }
         if (this.includeAngular2) {
-            this.npmInstall(['angular2', 'es6-shim@^0.33.3', 'es6-promise', 'reflect-metadata', 'zone.js', 'rxjs'], { saveDev: true })
+            this.npmInstall(['angular2@x', 'es6-shim@^0.33.3', 'es6-promise', 'reflect-metadata', 'zone.js', 'rxjs'], { saveDev: true })
         }
         if (this.includeReact) {
             this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react'], { saveDev: true })
