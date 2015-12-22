@@ -30,6 +30,7 @@ module.exports = yeoman.generators.Base.extend({
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeModernizr = answers.includeModernizr;
             this.includeAngular = wasSelected('includeAngular', features);
+            this.includeAngular2 = wasSelected('includeAngular2', features);
             this.includeReact = wasSelected('includeReact', features);
             this.includeBackbone = wasSelected('includeBackbone', features);
 
@@ -62,6 +63,9 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeAngular) {
             this.bowerInstall(['angular', 'angular-mocks'], { save: true })
+        }
+        if (this.includeAngular2) {
+            this.npmInstall(['angular2', 'es6-shim@^0.33.3', 'es6-promise', 'reflect-metadata', 'zone.js', 'rxjs'], { saveDev: true })
         }
         if (this.includeReact) {
             this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react'], { saveDev: true })

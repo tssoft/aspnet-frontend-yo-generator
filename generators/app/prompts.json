@@ -26,6 +26,10 @@
                 "value": "includeAngular",
                 "checked": false
             }, {
+                "name": "Angular2",
+                "value": "includeAngular2",
+                "checked": false
+            }, {
                 "name": "React",
                 "value": "includeReact",
                 "checked": false
