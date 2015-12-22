@@ -6,6 +6,7 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 var _ = require('lodash');
 var prompts = require('./prompts.json');
+var reactPrompts = require('./reactPrompts.json');
 
 module.exports = yeoman.generators.Base.extend({
     prompting: function () {
@@ -17,14 +18,13 @@ module.exports = yeoman.generators.Base.extend({
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var index = _.findIndex(prompts, { name: 'appName' });
         prompts[index].default = process.cwd().split(path.sep).pop();
+        function wasSelected(element, list) {
+            return list.indexOf(element) !== -1;
+        };
         this.prompt(prompts, function (answers) {
             var features = answers.features;
             var plugins = answers.plugins;
             var concatenatedSources = answers.concatenatedSources;
-
-            function wasSelected(element, list) {
-                return features && list.indexOf(element) !== -1;
-            };
 
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
@@ -32,6 +32,14 @@ module.exports = yeoman.generators.Base.extend({
             this.includeAngular = wasSelected('includeAngular', features);
             this.includeAngular2 = wasSelected('includeAngular2', features);
             this.includeReact = wasSelected('includeReact', features);
+            if (this.includeReact) {
+                this.prompt(reactPrompts, function(answers) {
+                    var reactPlugins = answers.reactPlugins;
+                    this.includeReflux = wasSelected('includeReflux', reactPlugins);
+                    this.includeRedux = wasSelected('includeRedux', reactPlugins);
+                    done();
+                }.bind(this));
+            }
             this.includeBackbone = wasSelected('includeBackbone', features);
 
             this.includeLess = wasSelected('includeLess', plugins);
@@ -41,7 +49,9 @@ module.exports = yeoman.generators.Base.extend({
 
             this.includeConcatCss = wasSelected('includeConcatCss', concatenatedSources);
             this.includeConcatJs = wasSelected('includeConcatJs', concatenatedSources);
-            done();
+            if (!this.includeReact) {
+                done();
+            }
         }.bind(this));
     },
 
@@ -70,6 +80,12 @@ module.exports = yeoman.generators.Base.extend({
         if (this.includeReact) {
             this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react'], { saveDev: true })
             this.copy('gulp/tasks/react.js', 'gulp/tasks/react.js');
+            if (this.includeReflux) {
+                this.npmInstall('reflux', { saveDev: true })
+            }
+            if (this.includeRedux) {
+                this.npmInstall('redux', { saveDev: true })
+            }
         }
         if (this.includeBackbone) {
             this.bowerInstall('backbone', { save: true })
