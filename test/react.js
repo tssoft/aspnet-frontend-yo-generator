@@ -20,8 +20,12 @@ describe('react', function () {
             .on('end', done);
     });
 
-    it('adds the file reference to Karma', function () {
+    it('adds the framework reference to Karma', function () {
         assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'react');
+    });
+
+    it('adds the file reference to Karma', function () {
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'es5-shim');
     });
 
     it('marks as default task', function () {
