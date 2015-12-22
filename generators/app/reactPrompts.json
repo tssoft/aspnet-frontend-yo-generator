@@ -14,7 +14,7 @@
                 "checked": false
             }, {
                 "name": "Not any of them",
-                "value": "includeNoMoreForReact",
+                "value": "includeNoneForReact",
                 "checked": false
             }
         ]

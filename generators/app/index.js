@@ -32,14 +32,6 @@ module.exports = yeoman.generators.Base.extend({
             this.includeAngular = wasSelected('includeAngular', features);
             this.includeAngular2 = wasSelected('includeAngular2', features);
             this.includeReact = wasSelected('includeReact', features);
-            if (this.includeReact) {
-                this.prompt(reactPrompts, function(answers) {
-                    var reactPlugins = answers.reactPlugins;
-                    this.includeReflux = wasSelected('includeReflux', reactPlugins);
-                    this.includeRedux = wasSelected('includeRedux', reactPlugins);
-                    done();
-                }.bind(this));
-            }
             this.includeBackbone = wasSelected('includeBackbone', features);
 
             this.includeLess = wasSelected('includeLess', plugins);
@@ -49,7 +41,17 @@ module.exports = yeoman.generators.Base.extend({
 
             this.includeConcatCss = wasSelected('includeConcatCss', concatenatedSources);
             this.includeConcatJs = wasSelected('includeConcatJs', concatenatedSources);
-            if (!this.includeReact) {
+            if (this.includeReact) {
+                this.prompt(reactPrompts, function (answers) {
+                    var reactPlugins = answers.reactPlugins;
+                    if (!wasSelected('includeNoneForReact', reactPlugins)) {
+                        this.includeReflux = wasSelected('includeReflux', reactPlugins);
+                        this.includeRedux = wasSelected('includeRedux', reactPlugins);
+                    }
+                    done();
+                }.bind(this));
+            }
+            else {
                 done();
             }
         }.bind(this));
