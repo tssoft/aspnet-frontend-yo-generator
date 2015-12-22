@@ -20,7 +20,8 @@ yo tssoft-aspnet-frontend
 
 You can choose target framework:
 
-* Angular
+* Angular 1.x
+* Angular 2.x
 * React
 * Backbone
 
