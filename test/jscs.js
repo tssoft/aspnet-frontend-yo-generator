@@ -10,7 +10,7 @@ var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
 describe('jscs', function () {
     before(function (done) {
         helpers.run(path.join(__dirname, '../generators/app'))
-            .inDir(path.join(__dirname, '.tmp'))
+            .inDir(rootTmp)
             .withPrompts({
                 features: ['includeReact'],
                 plugins: ['includeJscs'],

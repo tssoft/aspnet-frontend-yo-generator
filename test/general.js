@@ -4,10 +4,12 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
 
+var rootTmp = path.join(__dirname, '.tmp');
+
 describe('generator-tssoft-aspnet-frontend', function () {
     before(function (done) {
         helpers.run(path.join(__dirname, '../generators/app'))
-            .inDir(path.join(__dirname, '.tmp'))
+            .inDir(rootTmp)
             .withPrompts({
                 appName: 'reactTestApplication',
                 includeModernizr: true,
@@ -24,7 +26,6 @@ describe('generator-tssoft-aspnet-frontend', function () {
     });
 
     it('creates all required files', function () {
-        var rootTmp = path.join(__dirname, '.tmp');
         var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
         assert.file([
             path.join(rootTmp, '.gitignore'),
