@@ -13,10 +13,10 @@ describe('generator-tssoft-aspnet-frontend', function () {
             .withPrompts({
                 appName: 'reactTestApplication',
                 includeModernizr: true,
-                features: ['React'],
+                framework: 'React',
                 plugins: ['LESS', 'Karma', 'JSCS', 'ESLint'],
                 concatenatedSources: ['CSS', 'JS'],
-                reactPlugins: []
+                reactPlugin: []
             })
             .on('end', done);
     });

@@ -12,10 +12,10 @@ describe('backbone', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['Backbone'],
+                framework: 'Backbone',
                 plugins: ['Karma'],
                 concatenatedSources: [],
-                reactPlugins: []
+                reactPlugin: []
             })
             .on('end', done);
     });

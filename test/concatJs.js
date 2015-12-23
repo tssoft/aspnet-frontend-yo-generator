@@ -12,10 +12,10 @@ describe('concatJs', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['React'],
+                framework: 'React',
                 plugins: [],
                 concatenatedSources: ['JS'],
-                reactPlugins: []
+                reactPlugin: []
             })
             .on('end', done);
     });

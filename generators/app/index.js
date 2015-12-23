@@ -18,35 +18,32 @@ module.exports = yeoman.generators.Base.extend({
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var index = _.findIndex(prompts, { name: 'appName' });
         prompts[index].default = process.cwd().split(path.sep).pop();
-        function wasSelected(element, list) {
-            return list.indexOf(element) !== -1;
-        };
         this.prompt(prompts, function (answers) {
-            var features = answers.features;
+            var framework = answers.framework;
             var plugins = answers.plugins;
             var concatenatedSources = answers.concatenatedSources;
 
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeModernizr = answers.includeModernizr;
-            this.includeAngular = wasSelected('Angular 1.x', features);
-            this.includeAngular2 = wasSelected('Angular 2.x', features);
-            this.includeReact = wasSelected('React', features);
-            this.includeBackbone = wasSelected('Backbone', features);
+            this.includeAngular = framework === 'Angular 1.x';
+            this.includeAngular2 = framework === 'Angular 2.x';
+            this.includeReact = framework === 'React';
+            this.includeBackbone = framework == 'Backbone';
 
-            this.includeLess = wasSelected('LESS', plugins);
-            this.includeKarma = wasSelected('Karma', plugins);
-            this.includeJscs = wasSelected('JSCS', plugins);
-            this.includeEslint = wasSelected('ESLint', plugins);
+            this.includeLess = plugins.indexOf('LESS') >= 0;
+            this.includeKarma = plugins.indexOf('Karma') >= 0;
+            this.includeJscs = plugins.indexOf('JSCS') >= 0;
+            this.includeEslint = plugins.indexOf('ESLint') >= 0;
 
-            this.includeConcatCss = wasSelected('CSS', concatenatedSources);
-            this.includeConcatJs = wasSelected('JS', concatenatedSources);
+            this.includeConcatCss = concatenatedSources.indexOf('CSS') >= 0;
+            this.includeConcatJs = concatenatedSources.indexOf('JS') >= 0;
             if (this.includeReact) {
                 this.prompt(reactPrompts, function (answers) {
-                    var reactPlugins = answers.reactPlugins;
-                    if (!wasSelected('Not any of them', reactPlugins)) {
-                        this.includeReflux = wasSelected('Reflux', reactPlugins);
-                        this.includeRedux = wasSelected('Redux', reactPlugins);
+                    var reactPlugin = answers.reactPlugin;
+                    if (reactPlugin !== 'Not any of them') {
+                        this.includeReflux = reactPlugin === 'Reflux';
+                        this.includeRedux = reactPlugin === 'Redux';
                     }
                     done();
                 }.bind(this));

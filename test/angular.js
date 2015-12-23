@@ -12,10 +12,10 @@ describe('angular 1.x', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['Angular 1.x'],
+                framework: 'Angular 1.x',
                 plugins: ['Karma'],
                 concatenatedSources: [],
-                reactPlugins: []
+                reactPlugin: []
             })
             .on('end', done);
     });

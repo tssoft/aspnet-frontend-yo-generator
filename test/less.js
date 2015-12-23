@@ -12,10 +12,10 @@ describe('less', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['React'],
+                framework: 'React',
                 plugins: ['LESS'],
                 concatenatedSources: [],
-                reactPlugins: []
+                reactPlugin: []
             })
             .on('end', done);
     });

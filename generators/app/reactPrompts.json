@@ -1,8 +1,8 @@
 [
     {
         "type": "list",
-        "name": "reactPlugins",
-        "message": "What library for React would you like to install?",
+        "name": "reactPlugin",
+        "message": "What plugin for React would you like to install?",
         "choices": ["Reflux", "Redux", "Not any of them"]
     }
 ]

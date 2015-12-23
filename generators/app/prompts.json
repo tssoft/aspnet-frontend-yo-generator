@@ -18,7 +18,7 @@
     },
     {
         "type": "list",
-        "name": "features",
+        "name": "framework",
         "message": "What more framework would you install?",
         "choices": ["Angular 1.x", "Angular 2.x", "React", "Backbone"]
     },
