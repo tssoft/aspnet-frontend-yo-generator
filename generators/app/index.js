@@ -5,11 +5,10 @@ var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var path = require('path');
 var _ = require('lodash');
-var prompts = require('./prompts.json');
-var reactPrompts = require('./reactPrompts.json');
+var prompts = require('./prompts.js').prompts;
 
 module.exports = yeoman.generators.Base.extend({
-    prompting: function () {
+    prompting: function() {
         var done = this.async();
         this.pkg = {
             appVersion: '1.0.0'
@@ -18,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var index = _.findIndex(prompts, { name: 'appName' });
         prompts[index].default = process.cwd().split(path.sep).pop();
-        this.prompt(prompts, function (answers) {
+        this.prompt(prompts, function(answers) {
             var framework = answers.framework;
             var plugins = answers.plugins;
             var concatenatedSources = answers.concatenatedSources;
@@ -39,22 +38,17 @@ module.exports = yeoman.generators.Base.extend({
             this.includeConcatCss = concatenatedSources.indexOf('CSS') >= 0;
             this.includeConcatJs = concatenatedSources.indexOf('JS') >= 0;
             if (this.includeReact) {
-                this.prompt(reactPrompts, function (answers) {
-                    var reactPlugin = answers.reactPlugin;
-                    if (reactPlugin !== 'Not any of them') {
-                        this.includeReflux = reactPlugin === 'Reflux';
-                        this.includeRedux = reactPlugin === 'Redux';
-                    }
-                    done();
-                }.bind(this));
+                var reactPlugin = answers.reactPlugin;
+                if (reactPlugin !== 'Not any of them') {
+                    this.includeReflux = reactPlugin === 'Reflux';
+                    this.includeRedux = reactPlugin === 'Redux';
+                }
             }
-            else {
-                done();
-            }
+            done();
         }.bind(this));
     },
 
-    copyMainFiles: function () {
+    copyMainFiles: function() {
         mkdirp('src');
         mkdirp('test');
         this.copy('_gulpfile.js', 'gulpfile.js');
@@ -66,7 +60,7 @@ module.exports = yeoman.generators.Base.extend({
         this.copy('gulp/tasks/default.js', 'gulp/tasks/default.js');
     },
 
-    install: function () {
+    install: function() {
         this.npmInstall(['require-dir', 'gulp', 'gulp-notify'], { saveDev: true });
         if (this.includeTwitterBootStrap) {
             this.bowerInstall('twitter', { save: true })
