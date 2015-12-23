@@ -20,25 +20,7 @@
         "type": "list",
         "name": "features",
         "message": "What more framework would you install?",
-        "choices": [
-            {
-                "name": "Angular 1.x",
-                "value": "includeAngular",
-                "checked": false
-            }, {
-                "name": "Angular 2.x",
-                "value": "includeAngular2",
-                "checked": false
-            }, {
-                "name": "React",
-                "value": "includeReact",
-                "checked": false
-            }, {
-                "name": "Backbone",
-                "value": "includeBackbone",
-                "checked": false
-            }
-        ]
+        "choices": ["Angular 1.x", "Angular 2.x", "React", "Backbone"]
     },
     {
         "type": "checkbox",
@@ -47,20 +29,16 @@
         "choices": [
             {
                 "name": "LESS",
-                "value": "includeLess",
                 "checked": true
             }, {
                 "name": "Karma",
-                "value": "includeKarma",
                 "checked": true
             }, {
                 "name": "JSCS",
-                "value": "includeJscs",
                 "checked": true
             },
             {
                 "name": "ESLint",
-                "value": "includeEslint",
                 "checked": true
             }
         ]
@@ -72,11 +50,9 @@
         "choices": [
             {
                 "name": "CSS",
-                "value": "includeConcatCss",
                 "checked": false
             }, {
                 "name": "JS",
-                "value": "includeConcatJs",
                 "checked": false
             }
         ]

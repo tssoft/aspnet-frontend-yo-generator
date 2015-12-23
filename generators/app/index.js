@@ -29,24 +29,24 @@ module.exports = yeoman.generators.Base.extend({
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeModernizr = answers.includeModernizr;
-            this.includeAngular = wasSelected('includeAngular', features);
-            this.includeAngular2 = wasSelected('includeAngular2', features);
-            this.includeReact = wasSelected('includeReact', features);
-            this.includeBackbone = wasSelected('includeBackbone', features);
+            this.includeAngular = wasSelected('Angular 1.x', features);
+            this.includeAngular2 = wasSelected('Angular 2.x', features);
+            this.includeReact = wasSelected('React', features);
+            this.includeBackbone = wasSelected('Backbone', features);
 
-            this.includeLess = wasSelected('includeLess', plugins);
-            this.includeKarma = wasSelected('includeKarma', plugins);
-            this.includeJscs = wasSelected('includeJscs', plugins);
-            this.includeEslint = wasSelected('includeEslint', plugins);
+            this.includeLess = wasSelected('LESS', plugins);
+            this.includeKarma = wasSelected('Karma', plugins);
+            this.includeJscs = wasSelected('JSCS', plugins);
+            this.includeEslint = wasSelected('ESLint', plugins);
 
-            this.includeConcatCss = wasSelected('includeConcatCss', concatenatedSources);
-            this.includeConcatJs = wasSelected('includeConcatJs', concatenatedSources);
+            this.includeConcatCss = wasSelected('CSS', concatenatedSources);
+            this.includeConcatJs = wasSelected('JS', concatenatedSources);
             if (this.includeReact) {
                 this.prompt(reactPrompts, function (answers) {
                     var reactPlugins = answers.reactPlugins;
-                    if (!wasSelected('includeNoneForReact', reactPlugins)) {
-                        this.includeReflux = wasSelected('includeReflux', reactPlugins);
-                        this.includeRedux = wasSelected('includeRedux', reactPlugins);
+                    if (!wasSelected('Not any of them', reactPlugins)) {
+                        this.includeReflux = wasSelected('Reflux', reactPlugins);
+                        this.includeRedux = wasSelected('Redux', reactPlugins);
                     }
                     done();
                 }.bind(this));

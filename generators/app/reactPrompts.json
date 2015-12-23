@@ -3,20 +3,6 @@
         "type": "list",
         "name": "reactPlugins",
         "message": "What library for React would you like to install?",
-        "choices": [
-            {
-                "name": "Reflux",
-                "value": "includeReflux",
-                "checked": false
-            }, {
-                "name": "Redux",
-                "value": "includeRedux",
-                "checked": false
-            }, {
-                "name": "Not any of them",
-                "value": "includeNoneForReact",
-                "checked": false
-            }
-        ]
+        "choices": ["Reflux", "Redux", "Not any of them"]
     }
 ]
