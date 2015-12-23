@@ -12,9 +12,9 @@ describe('concatJs', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeReact'],
+                features: ['React'],
                 plugins: [],
-                concatenatedSources: ['includeConcatJs'],
+                concatenatedSources: ['JS'],
                 reactPlugins: []
             })
             .on('end', done);

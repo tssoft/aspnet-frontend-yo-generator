@@ -12,8 +12,8 @@ describe('angular 1.x', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeAngular'],
-                plugins: ['includeKarma'],
+                features: ['Angular 1.x'],
+                plugins: ['Karma'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

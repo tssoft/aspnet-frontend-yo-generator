@@ -12,8 +12,8 @@ describe('jscs', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeReact'],
-                plugins: ['includeJscs'],
+                features: ['React'],
+                plugins: ['JSCS'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

@@ -12,9 +12,9 @@ describe('concatCss', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeAngular'],
-                plugins: ['includeLess'],
-                concatenatedSources: ['includeConcatCss'],
+                features: ['Angular 1.x'],
+                plugins: ['LESS'],
+                concatenatedSources: ['CSS'],
                 reactPlugins: []
             })
             .on('end', done);

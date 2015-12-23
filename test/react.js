@@ -12,8 +12,8 @@ describe('react', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeReact'],
-                plugins: ['includeKarma'],
+                features: ['React'],
+                plugins: ['Karma'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

@@ -12,8 +12,8 @@ describe('less', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeReact'],
-                plugins: ['includeLess'],
+                features: ['React'],
+                plugins: ['LESS'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

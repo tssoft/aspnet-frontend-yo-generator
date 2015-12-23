@@ -12,8 +12,8 @@ describe('eslint', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeReact'],
-                plugins: ['includeEslint'],
+                features: ['React'],
+                plugins: ['ESLint'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

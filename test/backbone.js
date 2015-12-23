@@ -12,8 +12,8 @@ describe('backbone', function () {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
-                features: ['includeBackbone'],
-                plugins: ['includeKarma'],
+                features: ['Backbone'],
+                plugins: ['Karma'],
                 concatenatedSources: [],
                 reactPlugins: []
             })

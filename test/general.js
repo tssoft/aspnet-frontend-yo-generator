@@ -13,9 +13,9 @@ describe('generator-tssoft-aspnet-frontend', function () {
             .withPrompts({
                 appName: 'reactTestApplication',
                 includeModernizr: true,
-                features: ['includeReact'],
-                plugins: ['includeLess', 'includeKarma', 'includeJscs', 'includeEslint'],
-                concatenatedSources: ['includeConcatCss', 'includeConcatJss'],
+                features: ['React'],
+                plugins: ['LESS', 'Karma', 'JSCS', 'ESLint'],
+                concatenatedSources: ['CSS', 'JS'],
                 reactPlugins: []
             })
             .on('end', done);
