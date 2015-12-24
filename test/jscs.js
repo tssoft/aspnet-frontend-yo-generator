@@ -15,7 +15,7 @@ describe('jscs', function () {
                 framework: 'React',
                 plugins: ['JSCS'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: ''
             })
             .on('end', done);
     });

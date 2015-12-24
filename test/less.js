@@ -15,7 +15,7 @@ describe('less', function () {
                 framework: 'React',
                 plugins: ['LESS'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: 'Redux'
             })
             .on('end', done);
     });

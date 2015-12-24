@@ -15,7 +15,7 @@ describe('angular 1.x', function () {
                 framework: 'Angular 1.x',
                 plugins: ['Karma'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: ''
             })
             .on('end', done);
     });

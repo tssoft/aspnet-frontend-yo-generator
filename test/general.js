@@ -12,11 +12,12 @@ describe('generator-tssoft-aspnet-frontend', function () {
             .inDir(rootTmp)
             .withPrompts({
                 appName: 'reactTestApplication',
+                includeTwitterBootStrap: true,
                 includeModernizr: true,
                 framework: 'React',
                 plugins: ['LESS', 'Karma', 'JSCS', 'ESLint'],
                 concatenatedSources: ['CSS', 'JS'],
-                reactPlugin: []
+                reactPlugin: 'Reflux'
             })
             .on('end', done);
     });

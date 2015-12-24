@@ -15,7 +15,7 @@ describe('eslint', function () {
                 framework: 'React',
                 plugins: ['ESLint'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: ''
             })
             .on('end', done);
     });

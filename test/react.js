@@ -15,7 +15,7 @@ describe('react', function () {
                 framework: 'React',
                 plugins: ['Karma'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: 'Not any of them'
             })
             .on('end', done);
     });

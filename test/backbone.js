@@ -15,7 +15,7 @@ describe('backbone', function () {
                 framework: 'Backbone',
                 plugins: ['Karma'],
                 concatenatedSources: [],
-                reactPlugin: []
+                reactPlugin: ''
             })
             .on('end', done);
     });

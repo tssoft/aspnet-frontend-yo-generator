@@ -15,7 +15,7 @@ describe('concatJs', function () {
                 framework: 'React',
                 plugins: [],
                 concatenatedSources: ['JS'],
-                reactPlugin: []
+                reactPlugin: ''
             })
             .on('end', done);
     });
