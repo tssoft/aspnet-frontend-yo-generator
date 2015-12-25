@@ -30,7 +30,7 @@ module.exports = {
             type: 'list',
             name: 'reactPlugin',
             message: 'What plugin for React would you like to install?',
-            choices: ['Reflux', 'Redux', 'Not any of them']
+            choices: ['Redux', 'Reflux', 'Not any of them']
         },
         {
             type: 'checkbox',
