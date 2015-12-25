@@ -13,8 +13,6 @@ describe('angular 1.x', function () {
             .inDir(rootTmp)
             .withPrompts({
                 framework: 'Angular 1.x',
-                plugins: ['Karma'],
-                concatenatedSources: [],
                 reactPlugin: ''
             })
             .on('end', done);

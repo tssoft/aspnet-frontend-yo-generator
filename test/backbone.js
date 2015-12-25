@@ -13,8 +13,6 @@ describe('backbone', function () {
             .inDir(rootTmp)
             .withPrompts({
                 framework: 'Backbone',
-                plugins: ['Karma'],
-                concatenatedSources: [],
                 reactPlugin: ''
             })
             .on('end', done);

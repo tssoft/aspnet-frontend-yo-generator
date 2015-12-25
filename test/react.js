@@ -13,8 +13,6 @@ describe('react', function () {
             .inDir(rootTmp)
             .withPrompts({
                 framework: 'React',
-                plugins: ['Karma'],
-                concatenatedSources: [],
                 reactPlugin: 'Not any of them'
             })
             .on('end', done);

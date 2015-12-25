@@ -7,20 +7,26 @@ var helpers = require('yeoman-generator').test;
 var rootTmp = path.join(__dirname, '.tmp');
 var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
 
-describe('less', function () {
+describe('react', function () {
     before(function (done) {
         helpers.run(path.join(__dirname, '../generators/app'))
             .inDir(rootTmp)
             .withPrompts({
                 framework: 'React',
-                plugins: ['LESS'],
-                concatenatedSources: [],
                 reactPlugin: 'Redux'
             })
             .on('end', done);
     });
 
+    it('adds the framework reference to Karma', function () {
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'react');
+    });
+
+    it('adds the file reference to Karma', function () {
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'es5-shim');
+    });
+
     it('marks as default task', function () {
-        assert.fileContent(path.join(gulpTasksPath, 'default.js'), 'less');
+        assert.fileContent(path.join(gulpTasksPath, 'default.js'), 'react');
     });
 });

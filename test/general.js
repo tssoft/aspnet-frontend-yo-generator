@@ -14,8 +14,6 @@ describe('generator-tssoft-aspnet-frontend', function () {
                 appName: 'reactTestApplication',
                 includeTwitterBootStrap: true,
                 framework: 'React',
-                plugins: ['LESS', 'Karma', 'JSCS', 'ESLint'],
-                concatenatedSources: ['CSS', 'JS'],
                 reactPlugin: 'Reflux'
             })
             .on('end', done);
