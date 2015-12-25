@@ -56,6 +56,7 @@ module.exports = yeoman.generators.Base.extend({
         this.copy('_.jscsrc', '.jscsrc');
         this.copy('gulp/tasks/lint.js', 'gulp/tasks/lint.js');
         this.copy('_eslint.config.json', 'eslint.config.json');
+        this.copy('gulp/tasks/babel.js', 'gulp/tasks/babel.js');
         this.copy('gulp/tasks/check.js', 'gulp/tasks/check.js');
     },
 
@@ -72,7 +73,6 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeReact) {
             this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react'], { saveDev: true })
-            this.copy('gulp/tasks/react.js', 'gulp/tasks/react.js');
             if (this.includeReflux) {
                 this.npmInstall('reflux', { saveDev: true })
             }
@@ -83,6 +83,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.includeBackbone) {
             this.bowerInstall('backbone', { save: true })
         }
+        this.npmInstall(['gulp-babel', 'babel-preset-es2015', 'babel-preset-react'], { saveDev: true })
         this.npmInstall(['gulp-concat-css', 'gulp-concat'], { saveDev: true })
         this.npmInstall(['gulp-autoprefixer', 'gulp-sourcemaps', 'gulp-minify-css', 'gulp-less'], { saveDev: true });
         this.npmInstall(['karma', 'karma-jasmine', 'jasmine-core', 'phantomjs', 'karma-phantomjs-launcher'], { saveDev: true });

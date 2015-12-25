@@ -41,7 +41,7 @@ describe('generator-tssoft-aspnet-frontend', function () {
             path.join(gulpTasksPath, 'lint.js'),
             path.join(gulpTasksPath, 'karma.js'),
             path.join(gulpTasksPath, 'less.js'),
-            path.join(gulpTasksPath, 'react.js'),
+            path.join(gulpTasksPath, 'babel.js'),
         ]);
     });
 });
