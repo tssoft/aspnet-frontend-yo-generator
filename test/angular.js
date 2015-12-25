@@ -18,7 +18,8 @@ describe('angular 1.x', function () {
             .on('end', done);
     });
 
-    it('adds the file reference to Karma', function () {
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'angular');
+    it('adds the file references to Karma', function () {
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), '\'node_modules/angular/angular.min.js\',');
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), '\'node_modules/angular-mocks/angular-mocks.js\',');
     });
 });
