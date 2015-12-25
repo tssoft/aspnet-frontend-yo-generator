@@ -6,7 +6,7 @@
 gulp.task('react', function () {
     return gulp.src(config.src)
         .pipe(react())
-        .pipe(gulp.dest(config.dest))<% if (includeConcatJs) { %>
+        .pipe(gulp.dest(config.dest))
         .pipe(concat('app.js'))
-        .pipe(gulp.dest(config.dest));<% } %>
+        .pipe(gulp.dest(config.dest));
 });

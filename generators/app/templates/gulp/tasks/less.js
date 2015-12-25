@@ -15,7 +15,7 @@ gulp.task('less', function() {
         .pipe(autoprefixer({ cascade: false, browsers: ['last 2 versions'] }))
         .pipe(minifyCSS())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.dest))<% if (includeConcatCss) { %>
+        .pipe(gulp.dest(config.dest))
         .pipe(concatCss('styles.css'))
-        .pipe(gulp.dest(config.dest));<% } %>
+        .pipe(gulp.dest(config.dest));
 });

@@ -8,7 +8,7 @@ var _ = require('lodash');
 var prompts = require('./prompts.js').prompts;
 
 module.exports = yeoman.generators.Base.extend({
-    prompting: function() {
+    prompting: function () {
         var done = this.async();
         this.pkg = {
             appVersion: '1.0.0'
@@ -17,25 +17,17 @@ module.exports = yeoman.generators.Base.extend({
             'Welcome to the breathtaking ' + chalk.red('tssoft-aspnet-frontend') + ' generator!'));
         var index = _.findIndex(prompts, { name: 'appName' });
         prompts[index].default = process.cwd().split(path.sep).pop();
-        this.prompt(prompts, function(answers) {
+        this.prompt(prompts, function (answers) {
             var framework = answers.framework;
             var plugins = answers.plugins;
-            var concatenatedSources = answers.concatenatedSources;
 
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
             this.includeAngular = framework === 'Angular 1.x';
             this.includeAngular2 = framework === 'Angular 2.x';
             this.includeReact = framework === 'React';
-            this.includeBackbone = framework == 'Backbone';
+            this.includeBackbone = framework === 'Backbone';
 
-            this.includeLess = plugins.indexOf('LESS') >= 0;
-            this.includeKarma = plugins.indexOf('Karma') >= 0;
-            this.includeJscs = plugins.indexOf('JSCS') >= 0;
-            this.includeEslint = plugins.indexOf('ESLint') >= 0;
-
-            this.includeConcatCss = concatenatedSources.indexOf('CSS') >= 0;
-            this.includeConcatJs = concatenatedSources.indexOf('JS') >= 0;
             if (this.includeReact) {
                 var reactPlugin = answers.reactPlugin;
                 if (reactPlugin !== 'Not any of them') {
@@ -47,7 +39,7 @@ module.exports = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    copyMainFiles: function() {
+    copyMainFiles: function () {
         mkdirp('src');
         mkdirp('test');
         this.copy('_gulpfile.js', 'gulpfile.js');
@@ -57,9 +49,17 @@ module.exports = yeoman.generators.Base.extend({
         this.copy('.npmignore', '.gitignore');
         this.copy('gulp/util/handleErrors.js', 'gulp/util/handleErrors.js');
         this.copy('gulp/tasks/default.js', 'gulp/tasks/default.js');
+        this.copy('gulp/tasks/less.js', 'gulp/tasks/less.js');
+        this.copy('gulp/tasks/karma.js', 'gulp/tasks/karma.js');
+        this.copy('_karma.conf.js', 'karma.conf.js');
+        this.copy('gulp/tasks/jscs.js', 'gulp/tasks/jscs.js');
+        this.copy('_.jscsrc', '.jscsrc');
+        this.copy('gulp/tasks/lint.js', 'gulp/tasks/lint.js');
+        this.copy('_eslint.config.json', 'eslint.config.json');
+        this.copy('gulp/tasks/check.js', 'gulp/tasks/check.js');
     },
 
-    install: function() {
+    install: function () {
         this.npmInstall(['require-dir', 'gulp', 'gulp-notify'], { saveDev: true });
         if (this.includeTwitterBootStrap) {
             this.bowerInstall('twitter', { save: true })
@@ -83,33 +83,10 @@ module.exports = yeoman.generators.Base.extend({
         if (this.includeBackbone) {
             this.bowerInstall('backbone', { save: true })
         }
-        if (this.includeConcatCss) {
-            this.npmInstall('gulp-concat-css', { saveDev: true })
-        }
-        if (this.includeConcatJs) {
-            this.npmInstall('gulp-concat', { saveDev: true })
-        }
-        if (this.includeLess) {
-            this.copy('gulp/tasks/less.js', 'gulp/tasks/less.js');
-            this.npmInstall(['gulp-autoprefixer', 'gulp-sourcemaps', 'gulp-minify-css', 'gulp-less'], { saveDev: true });
-        }
-        if (this.includeKarma) {
-            this.copy('gulp/tasks/karma.js', 'gulp/tasks/karma.js');
-            this.copy('_karma.conf.js', 'karma.conf.js');
-            this.npmInstall(['karma', 'karma-jasmine', 'jasmine-core', 'phantomjs', 'karma-phantomjs-launcher'], { saveDev: true });
-        }
-        if (this.includeJscs) {
-            this.copy('gulp/tasks/jscs.js', 'gulp/tasks/jscs.js');
-            this.copy('_.jscsrc', '.jscsrc');
-            this.npmInstall('gulp-jscs', { saveDev: true });
-        }
-        if (this.includeEslint) {
-            this.copy('gulp/tasks/lint.js', 'gulp/tasks/lint.js');
-            this.copy('_eslint.config.json', 'eslint.config.json');
-            this.npmInstall('gulp-eslint', { saveDev: true });
-        }
-        if (this.includeEslint && this.includeJscs) {
-            this.copy('gulp/tasks/check.js', 'gulp/tasks/check.js');
-        }
+        this.npmInstall(['gulp-concat-css', 'gulp-concat'], { saveDev: true })
+        this.npmInstall(['gulp-autoprefixer', 'gulp-sourcemaps', 'gulp-minify-css', 'gulp-less'], { saveDev: true });
+        this.npmInstall(['karma', 'karma-jasmine', 'jasmine-core', 'phantomjs', 'karma-phantomjs-launcher'], { saveDev: true });
+        this.npmInstall('gulp-jscs', { saveDev: true });
+        this.npmInstall('gulp-eslint', { saveDev: true });
     }
 });
