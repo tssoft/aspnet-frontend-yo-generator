@@ -21,6 +21,6 @@ describe('concatCss', function () {
     });
 
     it('adds concatenation to less task', function () {
-        assert.fileContent(path.join(gulpTasksPath, 'less.js'), 'config.destConcat');
+        assert.fileContent(path.join(gulpTasksPath, 'less.js'), 'config.dest');
     });
 });

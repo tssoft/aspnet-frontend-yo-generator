@@ -17,5 +17,5 @@ gulp.task('less', function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.dest))<% if (includeConcatCss) { %>
         .pipe(concatCss('styles.css'))
-        .pipe(gulp.dest(config.destConcat));<% } %>
+        .pipe(gulp.dest(config.dest));<% } %>
 });

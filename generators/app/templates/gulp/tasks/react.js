@@ -8,5 +8,5 @@ gulp.task('react', function () {
         .pipe(react())
         .pipe(gulp.dest(config.dest))<% if (includeConcatJs) { %>
         .pipe(concat('app.js'))
-        .pipe(gulp.dest(config.destConcat));<% } %>
+        .pipe(gulp.dest(config.dest));<% } %>
 });

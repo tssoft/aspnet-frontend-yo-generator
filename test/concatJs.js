@@ -21,6 +21,6 @@ describe('concatJs', function () {
     });
 
     it('adds concatenation to react task', function () {
-        assert.fileContent(path.join(gulpTasksPath, 'react.js'), 'config.destConcat');
+        assert.fileContent(path.join(gulpTasksPath, 'react.js'), 'config.dest');
     });
 });
