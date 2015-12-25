@@ -1,7 +1,7 @@
 ﻿var gulp = require('gulp');
 
 gulp.task('default', [
-<% if (includeReact) { %>'react',<% } %>
+<% if (includeReact) { %>'babel',<% } %>
 'less',
 'lint',
 'jscs'

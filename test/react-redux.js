@@ -27,6 +27,6 @@ describe('react', function () {
     });
 
     it('marks as default task', function () {
-        assert.fileContent(path.join(gulpTasksPath, 'default.js'), 'react');
+        assert.fileContent(path.join(gulpTasksPath, 'default.js'), 'babel');
     });
 });
