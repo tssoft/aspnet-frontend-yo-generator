@@ -31,15 +31,15 @@ Gulp plugins:
 * Karma
 * JSCS
 * ESLint
-* Modernizr
 * ConcatCSS
 * Concat (for .js)
+* Babel
 
 ## Tasks
 
 Multiple:
 
-* gulp — starts React, Less, ESLint and JSCS
+* gulp — starts Babel, Less, ESLint and JSCS
 * gulp check — starts ESLint and JSCS
 * gulp default — the same as gulp
 
@@ -50,8 +50,8 @@ Single:
 * gulp modernizr
 * gulp tdd — starts Karma
 * gulp test — starts Karma with singleRun flag
-* gulp less — starts Less and minifying CSS results. If gulp-concat-css has been installed, results will be concatenated
-* gulp react — starts React and if gulp-concat has been installed, results will be also concatenated
+* gulp less — starts Less and minifying CSS results
+* gulp babel — starts Babel with installed presets and minifying
 
 ## Features
 
@@ -59,7 +59,7 @@ Single:
 ![Logo](assets/angular.png)
 ![Logo](assets/react.png)
 ![Logo](assets/backbone.png)
-![Logo](assets/modernizr.png)
+![Logo](assets/babel.png)
 ![Logo](assets/bower.png)
 ![Logo](assets/gulp.png)
 ![Logo](assets/less.png)
