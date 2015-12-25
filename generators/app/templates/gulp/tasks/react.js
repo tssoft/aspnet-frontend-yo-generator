@@ -1,7 +1,7 @@
 ﻿var gulp = require('gulp'),
     react = require('gulp-react'),
     concat = require('gulp-concat'),
-    config = require('../config').react;
+    config = require('../config').js;
 
 gulp.task('react', function () {
     return gulp.src(config.src)

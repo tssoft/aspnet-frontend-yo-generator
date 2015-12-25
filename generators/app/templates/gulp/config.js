@@ -1,8 +1,8 @@
 ﻿var buildScripts = 'build/scripts';
     buildStyles = 'build/styles',
     srcJs = 'src/**/*.js',
-    srcJsx = 'src/**/*.jsx',
-    srcLess = 'src/**/*.less';
+    srcLess = 'src/**/*.less',
+    <% if (includeReact) { %>srcScript = 'src/**/*.jsx';<% } else { %>srcScript = 'src/**/*.js';<% } %>
 
 module.exports = {
     less: {
@@ -15,8 +15,8 @@ module.exports = {
     lint: {
         src: srcJs
     },
-    react: {
-        src: srcJsx,
+    js: {
+        src: srcScript,
         dest: buildScripts,
     }
 };
