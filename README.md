@@ -10,6 +10,11 @@ npm install -g yo
 npm install -g git+https://github.com/tssoft/aspnet-frontend-yo-generator.git
 ```
 
+Second, install [Bower](http://bower.io). It's required for some packages.
+```bash
+npm install -g bower
+```
+
 Then generate your new project:
 
 ```bash
