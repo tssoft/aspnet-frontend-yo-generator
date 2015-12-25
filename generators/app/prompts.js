@@ -12,12 +12,6 @@ module.exports = {
             default: false
         },
         {
-            type: 'confirm',
-            name: 'includeModernizr',
-            message: 'Do you want to install Modernizr?',
-            default: false
-        },
-        {
             type: 'list',
             name: 'framework',
             message: 'What more framework would you install?',

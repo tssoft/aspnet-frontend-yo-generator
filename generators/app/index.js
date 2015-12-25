@@ -24,7 +24,6 @@ module.exports = yeoman.generators.Base.extend({
 
             this.pkg.appName = answers.appName;
             this.includeTwitterBootStrap = answers.includeTwitterBootStrap;
-            this.includeModernizr = answers.includeModernizr;
             this.includeAngular = framework === 'Angular 1.x';
             this.includeAngular2 = framework === 'Angular 2.x';
             this.includeReact = framework === 'React';
@@ -83,10 +82,6 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeBackbone) {
             this.bowerInstall('backbone', { save: true })
-        }
-        if (this.includeModernizr) {
-            this.npmInstall('gulp-modernizr', { saveDev: true })
-            this.copy('gulp/tasks/modernizr.js', 'gulp/tasks/modernizr.js');
         }
         if (this.includeConcatCss) {
             this.npmInstall('gulp-concat-css', { saveDev: true })
