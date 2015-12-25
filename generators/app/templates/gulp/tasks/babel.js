@@ -8,7 +8,7 @@ gulp.task('babel', function () {
     return gulp.src(config.src)
         .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ['es2015', 'react']
+            presets: ['es2015'<% if (includeReact) { %>, 'react'<% } %>]
         }))
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write())
