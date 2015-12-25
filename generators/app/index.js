@@ -72,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
             this.npmInstall(['angular2@x', 'es6-shim@^0.33.3', 'es6-promise', 'reflect-metadata', 'zone.js', 'rxjs'], { saveDev: true })
         }
         if (this.includeReact) {
-            this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react'], { saveDev: true })
+            this.npmInstall(['react', 'gulp-react', 'react-dom', 'core-js', 'karma-es5-shim', 'jasmine-react', 'babel-preset-react'], { saveDev: true })
             if (this.includeReflux) {
                 this.npmInstall('reflux', { saveDev: true })
             }
@@ -83,7 +83,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.includeBackbone) {
             this.bowerInstall('backbone', { save: true })
         }
-        this.npmInstall(['gulp-babel', 'babel-preset-es2015', 'babel-preset-react'], { saveDev: true })
+        this.npmInstall(['gulp-babel', 'babel-preset-es2015'], { saveDev: true })
         this.npmInstall(['gulp-concat-css', 'gulp-concat'], { saveDev: true })
         this.npmInstall(['gulp-autoprefixer', 'gulp-sourcemaps', 'gulp-minify-css', 'gulp-less'], { saveDev: true });
         this.npmInstall(['karma', 'karma-jasmine', 'jasmine-core', 'phantomjs', 'karma-phantomjs-launcher'], { saveDev: true });
