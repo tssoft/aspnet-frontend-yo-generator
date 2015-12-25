@@ -6,12 +6,6 @@ module.exports = {
             message: 'Name of the application: '
         },
         {
-            type: 'confirm',
-            name: 'includeTwitterBootStrap',
-            message: 'Do you want to install Twitter Bootstrap?',
-            default: false
-        },
-        {
             type: 'list',
             name: 'framework',
             message: 'What more framework would you install?',
@@ -25,6 +19,12 @@ module.exports = {
             name: 'reactPlugin',
             message: 'What plugin for React would you like to install?',
             choices: ['Redux', 'Reflux', 'Not any of them']
+        },
+        {
+            type: 'confirm',
+            name: 'includeTwitterBootStrap',
+            message: 'Do you want to install Twitter Bootstrap?',
+            default: false
         },
         {
             type: 'checkbox',
