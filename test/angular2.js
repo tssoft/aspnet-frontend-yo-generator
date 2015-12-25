@@ -18,7 +18,7 @@ describe('angular 2.x', function () {
             .on('end', done);
     });
 
-    it('sets a babel presets for ECMAScript 2015 only', function () {
+    it('sets a babel preset for ECMAScript 2015 only', function () {
         assert.fileContent(path.join(gulpTasksPath, 'babel.js'), 'presets: [\'es2015\']');
     });
 });

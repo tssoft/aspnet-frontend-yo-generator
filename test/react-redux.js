@@ -18,7 +18,7 @@ describe('react-redux', function () {
             .on('end', done);
     });
 
-    it('adds the framework reference to Karma', function () {
+    it('adds all required presets for Babel', function () {
         assert.fileContent(path.join(gulpTasksPath, 'babel.js'), 'presets: [\'es2015\', \'react\']');
     });
 });
