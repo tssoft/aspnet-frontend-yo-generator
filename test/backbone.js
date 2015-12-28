@@ -6,6 +6,7 @@ var helpers = require('yeoman-generator').test;
 
 var rootTmp = path.join(__dirname, '.tmp');
 var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
+var endOfLine = require('os').EOL;
 
 describe('backbone', function () {
     before(function (done) {
@@ -19,7 +20,7 @@ describe('backbone', function () {
     });
 
     it('adds the file references to Karma', function () {
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'backbone');
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'underscore');
+        var backboneReferences = endOfLine.concat('            \'bower_components/underscore/underscore-min.js\',', endOfLine, '            \'bower_components/backbone/backbone-min.js\',');
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), backboneReferences);
     });
 });

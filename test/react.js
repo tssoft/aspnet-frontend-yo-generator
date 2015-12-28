@@ -6,6 +6,7 @@ var helpers = require('yeoman-generator').test;
 
 var rootTmp = path.join(__dirname, '.tmp');
 var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
+var endOfLine = require('os').EOL;
 
 describe('react', function () {
     before(function (done) {
@@ -19,14 +20,11 @@ describe('react', function () {
     });
 
     it('adds the framework reference to Karma', function () {
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'react');
+        var reactReference = endOfLine.concat('            \'node_modules/react/dist/react-with-addons.js\',');
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), reactReference);
     });
 
     it('adds the file reference to Karma', function () {
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), 'es5-shim');
-    });
-
-    it('marks as default task', function () {
-        assert.fileContent(path.join(gulpTasksPath, 'default.js'), 'babel');
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), ' \'es5-shim\'');
     });
 });

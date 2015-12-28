@@ -6,6 +6,7 @@ var helpers = require('yeoman-generator').test;
 
 var rootTmp = path.join(__dirname, '.tmp');
 var gulpTasksPath = path.join(rootTmp, 'gulp/tasks');
+var endOfLine = require('os').EOL;
 
 describe('angular 1.x', function () {
     before(function (done) {
@@ -19,7 +20,7 @@ describe('angular 1.x', function () {
     });
 
     it('adds the file references to Karma', function () {
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), '\'node_modules/angular/angular.min.js\',');
-        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), '\'node_modules/angular-mocks/angular-mocks.js\',');
+        var angularReferences = endOfLine.concat('            \'node_modules/angular/angular.min.js\',', endOfLine, '            \'node_modules/angular-mocks/angular-mocks.js\',');
+        assert.fileContent(path.join(rootTmp, 'karma.conf.js'), angularReferences);
     });
 });
