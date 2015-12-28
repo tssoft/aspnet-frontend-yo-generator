@@ -1,5 +1,9 @@
 {
   "rules":{
+        "no-var": 1,
+        "prefer-const": 1,
+        "no-const-assign": 2,
+        "prefer-const": 1,
         "comma-dangle": [1, "never"],
 		"no-cond-assign": 1,
         "no-console": 0,
@@ -27,5 +31,11 @@
 		"use-isnan": 1,
 		"valid-jsdoc": 0,
 		"valid-typeof": 2
-    }
+    },
+    "env": {
+		"es6": true
+	},
+	"ecmaFeatures": {
+		"modules": true
+	}
 }
