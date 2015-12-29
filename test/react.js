@@ -20,7 +20,7 @@ describe('react', function () {
     });
 
     it('adds the framework reference to Karma', function () {
-        var reactReference = endOfLine.concat('            \'node_modules/react/dist/react.js\',', endOfLine, '            \'node_modules/react-dom/dist/react-dom.js\'');
+        var reactReference = endOfLine.concat('            \'node_modules/react/dist/react-with-addons.js\',', endOfLine, '            \'node_modules/react-dom/dist/react-dom.js\'');
         assert.fileContent(path.join(rootTmp, 'karma.conf.js'), reactReference);
     });
 
