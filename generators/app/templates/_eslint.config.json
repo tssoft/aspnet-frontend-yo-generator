@@ -5,37 +5,37 @@
         "no-const-assign": 2,
         "prefer-const": 1,
         "comma-dangle": [1, "never"],
-		"no-cond-assign": 1,
+        "no-cond-assign": 1,
         "no-console": 0,
-		"no-control-regex": 1,
-		"no-debugger": 2,
-		"no-dupe-args": 1,
-		"no-dupe-keys": 2,
-		"no-duplicate-case": 1,
-		"no-empty-character-class": 2,
-		"no-empty": 1,
-		"no-ex-assign": 1,
-		"no-extra-boolean-cast": 1,
-		"no-extra-parens": 0,
-		"no-extra-semi": 1,
-		"no-func-assign": 2,
-		"no-inner-declarations": 2,
-		"no-invalid-regexp": 2,
-		"no-irregular-whitespace": 2,
-		"no-negated-in-lhs": 2,
-		"no-obj-calls": 1,
-		"no-regex-spaces": 1,
-		"no-sparse-arrays": 1,
-		"no-unexpected-multiline": 0,
-		"no-unreachable": 1,
-		"use-isnan": 1,
-		"valid-jsdoc": 0,
-		"valid-typeof": 2
+        "no-control-regex": 1,
+        "no-debugger": 2,
+        "no-dupe-args": 1,
+        "no-dupe-keys": 2,
+        "no-duplicate-case": 1,
+        "no-empty-character-class": 2,
+        "no-empty": 1,
+        "no-ex-assign": 1,
+        "no-extra-boolean-cast": 1,
+        "no-extra-parens": 0,
+        "no-extra-semi": 1,
+        "no-func-assign": 2,
+        "no-inner-declarations": 2,
+        "no-invalid-regexp": 2,
+        "no-irregular-whitespace": 2,
+        "no-negated-in-lhs": 2,
+        "no-obj-calls": 1,
+        "no-regex-spaces": 1,
+        "no-sparse-arrays": 1,
+        "no-unexpected-multiline": 0,
+        "no-unreachable": 1,
+        "use-isnan": 1,
+        "valid-jsdoc": 0,
+        "valid-typeof": 2
     },
     "env": {
-		"es6": true
-	},
-	"ecmaFeatures": {
-		"modules": true
-	}
+        "es6": true
+    },
+    "ecmaFeatures": {
+        "modules": true
+    }
 }
