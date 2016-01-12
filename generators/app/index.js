@@ -69,6 +69,8 @@ module.exports = yeoman.generators.Base.extend({
         }
         if (this.includeAngular) {
             this.npmInstall(['angular@1.x', 'angular-mocks@1.x'], { save: true })
+            this.copy('_app.js', 'src/app.js');
+            this.copy('_app.config.js', 'src/app.config.js');
         }
         if (this.includeAngular2) {
             this.npmInstall(['angular2@x', 'es6-shim@^0.33.3', 'es6-promise', 'reflect-metadata', 'zone.js', 'rxjs'], { saveDev: true })
