@@ -23,40 +23,40 @@ yo tssoft-aspnet-frontend
 
 ## Options
 
-You can choose target framework:
+Target frameworks:
 
-* Angular 1.x
-* Angular 2.x
-* React
-* Backbone
+* [Angular 1.x](https://angularjs.org)
+* [Angular 2.x](https://angular.io)
+* [React](https://facebook.github.io/react)
+* [Backbone](http://backbonejs.org)
+* [Bootstrap](http://getbootstrap.com)
 
-Gulp plugins:
+Used npm packages
 
-* Less
-* Karma
-* JSCS
-* ESLint
-* ConcatCSS
-* Concat (for .js)
-* Babel
+* [Less](https://www.npmjs.com/package/gulp-less)
+* [Karma](https://www.npmjs.com/package/karma)
+* [Jasmine](https://www.npmjs.com/package/jasmine-core)
+* [JSCS](https://www.npmjs.com/package/gulp-jscs)
+* [ESLint](https://www.npmjs.com/package/gulp-eslint)
+* [ConcatCSS](https://www.npmjs.com/package/gulp-concat-css)
+* [Concat](https://www.npmjs.com/package/gulp-concat)
+* [Babel](https://www.npmjs.com/package/babel)
 
 ## Tasks
-
-Multiple:
-
-* gulp — starts Babel, Less, ESLint and JSCS
-* gulp check — starts ESLint and JSCS
-* gulp default — the same as gulp
 
 Single:
 
 * gulp jscs
 * gulp lint
-* gulp modernizr
 * gulp tdd — starts Karma
 * gulp test — starts Karma with singleRun flag
-* gulp less — starts Less and minifying CSS results
-* gulp babel — starts Babel with installed presets and minifying
+* gulp less
+* gulp babel
+
+Multiple:
+
+* gulp — starts Babel, Less, ESLint and JSCS
+* gulp check — starts ESLint and JSCS
 
 ## Features
 
