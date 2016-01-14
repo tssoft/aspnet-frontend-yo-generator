@@ -23,4 +23,11 @@ describe('angular 1.x', function () {
         var angularReferences = endOfLine.concat('            \'node_modules/angular/angular.min.js\',', endOfLine, '            \'node_modules/angular-mocks/angular-mocks.js\',');
         assert.fileContent(path.join(rootTmp, 'karma.conf.js'), angularReferences);
     });
+    
+    it('creates template scripts', function() {
+        assert.file([
+                path.join(rootTmp, 'src/app.js'),
+                path.join(rootTmp, 'src/app.config.js')
+            ]);
+    });
 });
