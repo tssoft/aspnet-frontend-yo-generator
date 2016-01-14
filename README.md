@@ -49,7 +49,7 @@ Single:
 * gulp jscs
 * gulp lint
 * gulp tdd — starts Karma
-* gulp test — starts Karma with singleRun flag
+* gulp test — starts Karma with [singleRun flag](http://karma-runner.github.io/0.13/config/configuration-file.html)
 * gulp less
 * gulp babel
 
