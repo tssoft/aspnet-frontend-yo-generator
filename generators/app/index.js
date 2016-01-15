@@ -81,7 +81,7 @@ module.exports = yeoman.generators.Base.extend({
                 this.npmInstall('reflux', { saveDev: true })
             }
             if (this.includeRedux) {
-                this.npmInstall('redux', { saveDev: true })
+                this.npmInstall(['redux', 'redux-logger', 'redux-thunk'], { save: true })
             }
         }
         if (this.includeBackbone) {
